@@ -1,5 +1,8 @@
 #include "Casillas.h"
-#pragma once
+#include <iostream>
+
+#ifndef PROPIEDAD_H
+#define PROPIEDAD_H
 
 using namespace std;
 
@@ -22,6 +25,30 @@ class Propiedad : public Casillas{
 		string color; //color de la propiedad
 
 	public:
+		//sobrecarga operador >>
+		/*color, precio, rentaNormal, rentaTodas, rentaUnaCasa, rentaDosCasas, rentaTresCasas,  
+		rentaCuatroCasas, rentaHotel, precioCasa, precioHotel*/
+		friend istream& operator >> (istream& in, Propiedad& propiedad){
+			char buffer[256];
+			in.getline(buffer, 256);
+			propiedad.nombre = buffer;
+			
+			in >> propiedad.color;
+			in >> propiedad.precio;
+			in >> propiedad.rentaNormal;
+			in >> propiedad.rentaTodas;
+			in >> propiedad.rentaUnaCasa;
+			in >> propiedad.rentaDosCasas;
+			in >> propiedad.rentaTresCasas;
+			in >> propiedad.rentaCuatroCasas;
+			in >> propiedad.rentaHotel;
+			in >> propiedad.precioCasa;
+			in >> propiedad.precioHotel;
+
+			in.ignore(1, '\n');
+			
+			return in;
+		}
 		//inicializa libre
 		Propiedad();
 		//retornar el tipo de casilla: Propiedad
@@ -31,25 +58,26 @@ class Propiedad : public Casillas{
 		//marca la propiedad como que tiene dueño
 		void vender();
 		double getPrecio(); //Tarea
-		bool libre(); //Tarea
+		bool estaLibre(); //Tarea
 		int getCasas(); //Tarea
 		string getColor(); //Tarea
 		//implementación inline
 		bool agregarCasa(){
 			if (casas < 4){
-				casa++;
+				casas++;
 				return true;
 			} else {
 				return false;
 			}
 		}
-		void agregarHotel(){
+		bool agregarHotel(){
 			if (casas == 4){
-				hotel = 1;
+				hoteles = 1;
 				casas = 0;
 				return true;
 			} else {
 				return false;
 			}
 		}
-	};
+};
+#endif

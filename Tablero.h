@@ -12,6 +12,9 @@ class Tablero {
 	public:
 		Tablero();
 		Casillas* getCasilla(int);
+		int getCantidadCasillas(){ 
+			return casillas.size(); //definicion inline
+		}
 		~Tablero();
 };
 #endif

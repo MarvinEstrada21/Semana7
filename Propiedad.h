@@ -1,5 +1,6 @@
 #include "Casillas.h"
 #include <iostream>
+#include "Print.h"
 
 #ifndef PROPIEDAD_H
 #define PROPIEDAD_H
@@ -7,6 +8,7 @@
 using namespace std;
 
 class Propiedad : public Casillas{
+	friend class Print;
 	private:
 		bool libre; //indica si la casilla no tiene dueño
 		double precio; //información para venderla

@@ -1,5 +1,8 @@
-#include <string>
 #include "Casillas.h"
+#include "Propiedad.h"
+#include "Print.h"
+
+#include <string>
 #include <vector>
 #include <iostream>
 
@@ -9,6 +12,7 @@
 using namespace std;
 
 class Jugador{
+	friend class Print;
 	private:
 		string pieza;
 		vector <Casillas*> casillas;
@@ -29,6 +33,8 @@ class Jugador{
 		double getDinero(); //Tarea
 		double recibirDinero(double); //Tarea
 		void pagar(double); //Tarea
+
+		bool hasPropertyMonopoly(Propiedad*);
 
 		friend istream& operator >> (istream& in, Jugador& jugador){
 			in >> jugador.pieza;

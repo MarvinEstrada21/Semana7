@@ -5,17 +5,20 @@
 #include "Propiedad.h"
 #include "Jugador.h"
 #include "Juego.h"
+#include "Print.h"
+#include "Tarjetas.h"
+#include "TirarDados.h"
 
 using namespace std;
 
 int main(){
-	Casillas* c = new Propiedad();
+	/*Casillas* c = new Propiedad();
 	delete c;
 	Jugador* player = new Jugador();
 	/*cin >> *player;
 	cout << player -> getPieza() << endl;
 	cout << player -> getTurno() << endl;
-	delete player;*/
+	delete player;
 
 	//Prueba archivos
 	ifstream file ("Jugadores.txt");
@@ -43,11 +46,11 @@ int main(){
 	//cout << "Pieza: " << player -> getPieza() << endl;
 	//cout << "Dinero: " << player -> getDinero() << endl;
 
-	delete player;
+	delete player;*/
 
 	//probar juego y tablero
 	Juego* juego = new Juego();
-
+	int retval = juego -> jugar();
 	delete juego;
 	
 	return 0;

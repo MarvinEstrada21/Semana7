@@ -20,7 +20,7 @@ Tablero::Tablero(){
 }
 
 Casillas* Tablero::getCasilla(int pos){
-	if (pos < 0 && pos > casillas.size() - 1){
+	if (pos < 0 || pos > casillas.size() - 1){
 		return NULL;
 	} else {
 		return casillas[pos];

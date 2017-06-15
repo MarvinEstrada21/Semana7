@@ -34,5 +34,33 @@ double Jugador::recibirDinero(double rdinero){
 }
 
 void Jugador::pagar(double ppagar){
-	dinero - ppagar;
+	dinero -= ppagar;
+}
+
+void Jugador::agregarCasilla(Casillas* cas){
+
+}
+
+vector<Casillas*> & Jugador::getCasillas(){
+	return casillas;
+}
+
+bool Jugador::hasPropertyMonopoly(Propiedad* prop){
+	string color = prop -> getColor();
+	int contador = 0;
+	for (int i = 0; i < casillas.size(); ++i){
+		Propiedad* contar = dynamic_cast<Propiedad*> (casillas[i]);
+		if (contar != NULL){
+			//comparar la var color el color de contar
+			if (color.compare(contar -> getColor()) == 0){
+				contador++;
+			}
+		}
+	}//contar
+	//completar función
+	if (contador == 3){
+		return true;
+	} else {
+		return false;
+	}
 }
